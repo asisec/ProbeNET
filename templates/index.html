@@ -1,25 +1,108 @@
-{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProbeNET</title>
-    {% tailwind_css %}
+    <title>ProbeNET Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
-    <div class="text-center space-y-4">
-        <h1 class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-600">
-            ProbeNET
-        </h1>
+<body class="bg-gray-100 min-h-screen p-6 font-sans">
 
-        <p class="text-xl text-gray-400 tracking-wide">
-            Advanced Domain Intelligence Platform
-        </p>
-
-        <button class="btn btn-primary mt-6">
-            Start Scanning 🚀
-        </button>
+<div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+    <div class="bg-slate-800 p-6">
+        <h1 class="text-2xl font-bold text-white text-center">ProbeNET Intelligence</h1>
     </div>
+
+    <div class="p-8">
+        <form method="post" class="flex gap-4 mb-8">
+            {% csrf_token %}
+            <input type="text" name="domain" placeholder="example.com" required
+                   class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+            <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200">
+                Analyze Domain
+            </button>
+        </form>
+
+        {% if error %}
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded" role="alert">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+
+        {% if entity %}
+            <div class="space-y-6 animate-fade-in-up">
+
+                <div class="flex items-center justify-between border-b pb-4">
+                    <h2 class="text-3xl font-bold text-gray-800">{{ entity.domain_name }}</h2>
+                    <span class="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm font-semibold">
+                        {{ entity.registrar_info }}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-4 rounded-lg text-center border border-gray-100">
+                        <div class="text-4xl font-extrabold {% if entity.risk_score > 50 %}text-red-500{% else %}text-green-500{% endif %}">
+                            {{ entity.risk_score }}
+                        </div>
+                        <div class="text-sm text-gray-500 mt-1 uppercase tracking-wide font-semibold">Risk Score</div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg text-center border border-gray-100">
+                        <div class="text-4xl font-bold text-blue-600">{{ entity.days_active }}</div>
+                        <div class="text-sm text-gray-500 mt-1 uppercase tracking-wide font-semibold">Days Active</div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg text-center border border-gray-100">
+                        <div class="text-xl font-bold text-gray-700 mt-2">
+                            {% if entity.is_privacy_protected %}
+                                <span class="text-orange-500">Protected</span>
+                            {% else %}
+                                <span class="text-green-600">Public</span>
+                            {% endif %}
+                        </div>
+                        <div class="text-sm text-gray-500 mt-2 uppercase tracking-wide font-semibold">Whois Privacy</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-700 mb-3 border-b pb-2">Network Status</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">IP Address:</span>
+                                <span class="font-mono font-medium">{{ raw_data.ip_address }}</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-600 block mb-2">Open Ports:</span>
+                                <div class="flex flex-wrap gap-2">
+                                    {% for port in raw_data.open_ports %}
+                                        <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded shadow-sm border border-green-200">
+                                            PORT {{ port }}
+                                        </span>
+                                    {% empty %}
+                                        <span class="text-gray-400 italic text-sm">No common ports detected.</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-700 mb-3 border-b pb-2">DNS Records</h3>
+                        <ul class="space-y-1">
+                            {% for ns in raw_data.name_servers %}
+                                <li class="text-sm text-gray-600 bg-gray-50 px-2 py-1 rounded border border-gray-100 truncate">
+                                    {{ ns }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
 </body>
 </html>

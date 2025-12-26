@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from typing import List, Optional
 from datetime import datetime
+from django.utils import timezone
+
 
 @dataclass
 class DomainData:
@@ -14,6 +16,7 @@ class DomainData:
     status: List[str] = field(default_factory=list)
     emails: List[str] = field(default_factory=list)
     dnssec: Optional[str] = None
+
 
 class DomainEntity:
     def __init__(self, data: DomainData):
@@ -37,7 +40,14 @@ class DomainEntity:
     def days_active(self) -> int:
         if not self._data.creation_date:
             return 0
-        delta = datetime.now() - self._data.creation_date
+
+        now = timezone.now()
+
+        if self._data.creation_date.tzinfo is None:
+            delta = now.replace(tzinfo=None) - self._data.creation_date
+        else:
+            delta = now - self._data.creation_date
+
         return delta.days
 
     @property
