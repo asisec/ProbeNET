@@ -1,0 +1,25 @@
+services:
+  scanner:
+    build:
+      context: ./scanner
+    container_name: scanner_service
+    expose:
+      - "8000"
+    restart: always
+
+  web:
+    build:
+      context: .
+    container_name: django_web
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - SCANNER_URL=http://scanner:8000/scan
+    depends_on:
+      - scanner
+    restart: always
