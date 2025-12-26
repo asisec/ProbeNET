@@ -1,4 +1,5 @@
 import requests
+import os
 from django.shortcuts import render
 from .models import DomainData, DomainEntity
 from dateutil import parser
@@ -9,7 +10,8 @@ def index(request):
 
     if request.method == "POST":
         domain_input = request.POST.get("domain")
-        api_url = "http://localhost:8000/scan"
+
+        api_url = os.getenv("SCANNER_URL", "http://localhost:8000/scan")
 
         try:
             response = requests.post(api_url, json={"domain": domain_input}, timeout=15)
@@ -41,6 +43,6 @@ def index(request):
             }
 
         except Exception as e:
-            context = {"error": str(e)}
+            context = {"error": f"Connection error: {str(e)}"}
 
     return render(request, 'index.html', context)
