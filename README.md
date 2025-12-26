@@ -63,7 +63,7 @@ Follow these steps to set up the environment.
 
 1. **Clone the repository**
 
-        git clone [https://github.com/asisec/ProbeNET.git](https://github.com/asisec/ProbeNET.git)
+        git clone https://github.com/asisec/ProbeNET.git
         cd ProbeNET
 
 2. **Run with Docker Compose**
@@ -71,7 +71,7 @@ Follow these steps to set up the environment.
         docker-compose up --build
 
 3. **Access the Application**
-   - Web UI: `http://localhost:8001`
+   - Web UI: `http://localhost:8000`
    - API Docs: `http://localhost:8000/docs`
 
 ## 🛠 Manual Installation (Development)
