@@ -26,7 +26,7 @@
     <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   </a>
   <a href="#">
-    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&    logo=open-source-initiative&logoColor=white" alt="License" />
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=open-source-initiative&logoColor=white" alt="License" />
   </a>
   <a href="#">
     <img src="https://img.shields.io/badge/Standard-ISO%2FIEC%2027001-red?style=for-the-badge&logo=security-scorecard&logoColor=white" alt="ISO" />
