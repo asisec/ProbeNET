@@ -7,27 +7,33 @@
   </p>
   <br />
 
-  <a href="[https://www.python.org/](https://www.python.org/)">
-    <img src="[https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)" alt="Python" />
-  </a>
-  <a href="[https://www.djangoproject.com/](https://www.djangoproject.com/)">
-    <img src="[https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)" alt="Django" />
-  </a>
-  <a href="[https://tailwindcss.com/](https://tailwindcss.com/)">
-    <img src="[https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)" alt="Tailwind CSS" />
-  </a>
-  <a href="[https://www.docker.com/](https://www.docker.com/)">
-    <img src="[https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)" alt="Docker" />
-  </a>
-  <a href="[https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/)">
-    <img src="[https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)" alt="FastAPI" />
-  </a>
-  <a href="#">
-    <img src="[https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=open-source-initiative&logoColor=white](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=open-source-initiative&logoColor=white)" alt="License" />
-  </a>
-  <a href="#">
-    <img src="[https://img.shields.io/badge/Standard-ISO%2FIEC%2027001-red?style=for-the-badge&logo=security-scorecard&logoColor=white](https://img.shields.io/badge/Standard-ISO%2FIEC%2027001-red?style=for-the-badge&logo=security-scorecard&logoColor=white)" alt="ISO" />
-  </a>
+  <a href="https://www.python.org/">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+</a>
+
+<a href="https://www.djangoproject.com/">
+  <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" />
+</a>
+
+<a href="https://tailwindcss.com/">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+</a>
+
+<a href="https://www.docker.com/">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+</a>
+
+<a href="https://fastapi.tiangolo.com/">
+  <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white" />
+</a>
+
+<a href="#">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=open-source-initiative&logoColor=white" />
+</a>
+
+<a href="#">
+  <img src="https://img.shields.io/badge/Standard-ISO%2FIEC%2027001-red?style=for-the-badge&logo=security-scorecard&logoColor=white" />
+</a>
 </div>
 
 <br />
